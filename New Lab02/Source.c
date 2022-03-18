@@ -3,6 +3,7 @@
 #include<time.h>
 #define _CRT_SECURE_NO_WARNINGS
 
+//prototype of function
 int func1(int x, int y);
 int func2(int x, int y);
 int func3(int x, int y);
@@ -12,23 +13,25 @@ void MessageF();
 int main()
 {
 	int x, y;
-	int ans = 0;
+	int ans = 0;  //輸入答案
 	int Shiftvalue = 10, Range = 90;
 	srand(time(NULL));
-	int formula_choose = rand() % 3;
+	int formula_choose = rand() % 3;  //選擇公式:rand()%3取餘(0 1 2)
 
 	while (1)
 	{
-		int Computer_ans;
-		x = Shiftvalue + rand() % Range;
+		int Computer_ans;  //電腦計算的答案
+		x = Shiftvalue + rand() % Range; 
 		y = Shiftvalue + rand() % Range;
+		//x, y的Range=10-99
 	
+		//如果餘為0則判斷是否為正確答案
 		if (formula_choose == 0)
 		{
 			Computer_ans = func1(x, y);
 			scanf_s("%d", &ans);
 
-			if (ans == -1)
+			if (ans == -1)  //如果輸入-1則終止
 			{
 				exit(0);
 			}
@@ -97,9 +100,8 @@ int func1(int x, int y)
 	int Computer_ans;
 	printf("What is %d+7-%d ? (input -1 to exit)\n", x, y);
 	Computer_ans = x + 7 - y;
-	printf("%d\n", Computer_ans);
 
-	return Computer_ans;
+	return Computer_ans;  //回傳電腦答案至31、53、74行
 }
 
 int func2(int x, int y)
@@ -107,7 +109,6 @@ int func2(int x, int y)
 	int Computer_ans;
 	printf("What is (%d+5)*%d/%d ? (input -1 to exit)\n", x, x, y);
 	Computer_ans = (x + 5) * x / y;
-	printf("%d\n", Computer_ans);
 
 	return Computer_ans;
 }
@@ -117,14 +118,13 @@ int func3(int x, int y)
 	int Computer_ans;
 	printf("What is (3*%d)+(%d*%d/4)-5 ? (input -1 to exit)\n", x, y, y);
 	Computer_ans = (3 * x) + (y * y / 4) - 5;
-	printf("%d\n", Computer_ans);
 
 	return Computer_ans;
 }
 
-void MessageT()
+void MessageT()  //正答印出的訊息們
 {
-	int message = rand() % 3;
+	int message = rand() % 3;  //隨機(%取餘)
 	if (message == 0)
 	{
 		printf("Exellent!\n");
