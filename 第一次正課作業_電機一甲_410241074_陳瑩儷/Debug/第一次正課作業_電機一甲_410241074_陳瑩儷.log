@@ -1,0 +1,4 @@
+﻿  Main.c
+C:\Users\陳瑩儷\source\repos\第一次正課作業_電機一甲_410241074_陳瑩儷\Main.c(15,24): warning C4101: 'boxR': unreferenced local variable
+C:\Users\陳瑩儷\source\repos\第一次正課作業_電機一甲_410241074_陳瑩儷\Main.c(127,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  第一次正課作業_電機一甲_410241074_陳瑩儷.vcxproj -> C:\Users\陳瑩儷\source\repos\第一次正課作業_電機一甲_410241074_陳瑩儷\Debug\第一次正課作業_電機一甲_410241074_陳瑩儷.exe
