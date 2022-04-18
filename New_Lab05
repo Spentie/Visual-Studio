@@ -1,0 +1,87 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int BubbleSort1(int matrix[], int a);//幫第一組陣列排序並列印出來
+int BubbleSort2(int matrix[], int a);//幫第二組陣列排序並列印出來
+int average(int matrix[], int a, int matrix2[], int b);//計算排序後的兩個陣列的每個數字平均
+int main()
+{
+	int Matrix1[50] = { 0 };//第一個陣列
+	int Matrix2[50] = { 0 };//第二個陣列
+	srand(time(NULL));
+	printf("Matrix1\n");
+	for (int i = 0; i < 50; i++)//隨機付值並列印
+	{
+		Matrix1[i] = 1 + rand() % 99;
+		printf("%-10d", Matrix1[i]);
+	}
+	printf("\nMatrix2\n");
+	for (int j = 0; j < 50; j++)//隨機付值並列印
+	{
+		Matrix2[j] = 1 + rand() % 99;
+		printf("%-10d", Matrix2[j]);
+	}
+	BubbleSort1(Matrix1, 50);
+	BubbleSort2(Matrix2, 50);
+	average(Matrix1, 50, Matrix2, 50);
+	system("pause");
+	return 0;
+}
+
+
+int BubbleSort1(int matrix[], int a)//排序由小到大並列印
+{
+	int hold = 0;
+	for (int x = 1; x < 50; x++)
+	{
+		for (int y = 0; y < 49; y++)
+		{
+			if (matrix[y] > matrix[y + 1])
+			{
+				hold = matrix[y + 1];
+				matrix[y + 1] = matrix[y];
+				matrix[y] = hold;
+			}
+		}
+	}
+	printf("\nMatrix1 small to big\n");
+	for (int i = 0; i < 50; i++)//列印陣列
+		printf("%-10d", matrix[i]);
+
+}
+
+
+int BubbleSort2(int matrix[], int a)//排序由大到小並列印
+{
+	int hold = 0;
+	for (int x = 1; x < 50; x++)
+	{
+		for (int y = 0; y < 49; y++)
+		{
+			if (matrix[y] < matrix[y + 1])
+			{
+				hold = matrix[y + 1];
+				matrix[y + 1] = matrix[y];
+				matrix[y] = hold;
+			}
+		}
+	}
+	printf("\nMatrix2 big to small\n");
+	for (int i = 0; i < 50; i++)//列印陣列
+		printf("%-10d", matrix[i]);
+}
+
+int average(int matrix1[], int a, int matrix2[], int b)//計算平均
+{
+	int matrix3[50] = { 0 };
+	for (int i = 0; i < 50; i++)
+	{
+		matrix3[i] = (matrix1[i] + matrix2[i]) / 2;
+	}
+	printf("\nThe average element of Matrix1 and Matrix2\n");
+	for (int j = 0; j < 50; j++)//列印陣列
+		printf("%-10d", matrix3[j]);
+	printf("\n");
+}
