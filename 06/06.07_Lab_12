@@ -1,0 +1,100 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+void RightShift(int num1, int num2);
+void LeftShift(int num1, int num2);
+
+int main()
+{
+	int num1, num2;
+	int i = 0, j = 0, a[64] = { 0 }, b[64] = { 0 };
+
+	printf("請輸入兩個正整數:");
+	scanf("%d%d", &num1, &num2);
+	printf("%d% =", num1);
+
+	while (num1 > 0)
+	{
+		a[i] = num1 % 2;
+		num1 = num1 / 2;
+	}
+	for (; i < 32; i++)
+	{
+		printf("%d", a[i - 1]);
+	}
+
+	printf("\n");
+	printf("%d =", num2);
+	while (num2 > 0)
+	{
+		b[j] = num2 % 2;
+		j = j + 1;
+		num2 = num2 / 2;
+	}
+	for (; j > 0; j--)
+	{
+		printf("%d", b[j - 1]);
+	}
+	printf("\n");
+
+	RightShift(num1, num2);
+	LeftShift(num1, num2);
+
+	system("PAUSE");
+	return 0;
+}
+
+void RightShift(int num1, int num2)
+{
+	int i = 0, j = 0;
+	int a[64] = { 0 };
+	int b[64] = { 0 };
+	while (num1 > 0)
+	{
+		a[i] = num1 % 2;
+		i = i + 1;
+		num1 = num1 / 2;
+	}
+	while (num2 > 0)
+	{
+		b[j] = num2 % 2;
+		j = j + 1;
+		num2 = num2 / 2;
+	}
+	printf("%d >> 2 =%d\n", num1, a[64] >> 2);
+	printf("%d >> 5 =%d\n", num1, a[64] >> 5);
+	printf("%d >> 8 =%d\n", num1, a[64] >> 8);
+
+	printf("%d >> 2 =%d\n", num2, b[64] >> 2);
+	printf("%d >> 5 =%d\n", num2, b[64] >> 5);
+	printf("%d >> 8 =%d\n", num2, b[64] >> 8);
+	printf("\n");
+}
+
+void LeftShift(int num1, int num2)
+{
+	int i = 0, j = 0;
+	int a[64] = { 0 };
+	int b[64] = { 0 };
+	while (num1 > 0)
+	{
+		a[i] = num1 % 2;
+		i = i + 1;
+		num1 = num1 / 2;
+	}
+	while (num2 > 0)
+	{
+		b[j] = num2 % 2;
+		j = j + 1;
+		num2 = num2 / 2;
+	}
+	printf("%d << 3 =%d\n", num1, a[64] << 3);
+	printf("%d << 7 =%d\n", num1, a[64] << 7);
+	printf("%d << 11 =%d\n", num1, a[64] << 11);
+
+	printf("%d << 3 =%d\n", num2, b[64] << 3);
+	printf("%d << 7 =%d\n", num2, b[64] << 7);
+	printf("%d << 11 =%d\n", num2, b[64] << 11);
+	printf("\n");
+}
